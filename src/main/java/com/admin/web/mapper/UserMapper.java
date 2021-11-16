@@ -9,5 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface UserMapper {
-    User login(LoginForm loginForm);
+    User login(Integer id);
+
+    User login2(LoginForm loginForm);
 }

@@ -7,16 +7,20 @@ public class LoginForm {
     private String userName;
     private String pwd;
 
+    public LoginForm() {
+    }
+
+    public LoginForm(String userName, String pwd) {
+        this.userName = userName;
+        this.pwd = pwd;
+    }
+
     @Override
     public String toString() {
         return "LoginForm{" +
                 "userName='" + userName + '\'' +
                 ", pwd='" + pwd + '\'' +
                 '}';
-    }
-
-    /* mybatis中直接使用实体类，必须要有无参构造 */
-    public LoginForm() {
     }
 
     public String getUserName() {

@@ -9,6 +9,17 @@ public class User {
     private Integer state;
     private Date createTime;
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", state=" + state +
+                ", createTime=" + createTime +
+                '}';
+    }
+
     public User() {
     }
 

@@ -4,8 +4,12 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.admin.web.mapper.UserMapper">
 
-    <select id="login" parameterType="com.admin.web.form.LoginForm" resultType="com.admin.web.entity.User">
-        select * from user where user_name = #{loginForm.userName} and pwd = #{loginForm.pwd}
+    <select id="login" parameterType="Integer" resultType="user">
+        select * from `user` where id = #{id}
+    </select>
+
+    <select id="login2" parameterType="com.admin.web.form.LoginForm" resultType="user">
+        select * from `user` where user_name = #{userName} and pwd = #{pwd}
     </select>
 
 </mapper>

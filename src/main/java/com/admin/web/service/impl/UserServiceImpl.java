@@ -14,9 +14,14 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User login(LoginForm loginForm) {
-        System.out.println(1);
-        return userMapper.login(loginForm);
+    public User login(Integer id) {
+        System.out.println("service调用了");
+        return userMapper.login(id);
+    }
+
+    @Override
+    public User login2(LoginForm loginForm) {
+        return userMapper.login2(loginForm);
     }
 
 }
