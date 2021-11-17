@@ -1,10 +1,14 @@
 package com.admin.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 public class User {
+
     private Integer id;
     private String userName;
+    @JsonIgnore
     private String pwd;
     private Integer state;
     private Date createTime;

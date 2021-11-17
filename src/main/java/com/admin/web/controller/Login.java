@@ -3,33 +3,31 @@ package com.admin.web.controller;
 import com.admin.web.entity.User;
 import com.admin.web.form.LoginForm;
 import com.admin.web.service.UserService;
+import com.admin.web.utils.result.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 @RequestMapping("/pub/v1")
 public class Login {
+
     @Autowired
     private UserService userService;
 
-    @GetMapping("login")
+    @PostMapping("login")
     @ResponseBody
-    public Object login(Integer id){
-        System.out.println("controller调用了");
-        System.out.println(id);
-        User user = userService.login(id);
-        System.out.println(user);
-        return user;
+    public Object login(@RequestBody LoginForm loginForm){
+        User user = userService.login(loginForm);
+
+        if (null == user){
+            return  Result.error("登录失败");
+        }
+
+        return Result.success(user);
     }
 
-    @PostMapping("login2")
-    @ResponseBody
-    public Object login2(@RequestBody LoginForm loginForm){
-        System.out.println("controller调用了");
-        System.out.println(loginForm);
-        User user = userService.login2(loginForm);
-        System.out.println(user);
-        return user;
-    }
 }
