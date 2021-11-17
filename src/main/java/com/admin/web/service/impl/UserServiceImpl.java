@@ -5,8 +5,7 @@ import com.admin.web.form.LoginForm;
 import com.admin.web.form.QueryUsersForm;
 import com.admin.web.mapper.UserMapper;
 import com.admin.web.service.UserService;
-import com.admin.web.utils.page.MyPageInfo;
-import com.admin.web.utils.page.PageUtils;
+import com.admin.web.utils.CommonUtils.JwtUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +20,15 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public User login(LoginForm loginForm) {
+    public String login(LoginForm loginForm) {
         User user = userMapper.login(loginForm);
+        if (user == null){
+            return null;
+        }else {
+            String token = JwtUtils.geneJsonWebToken(user);
+            return token;
+        }
 
-        return  user == null ? null : user;
     }
 
     @Override

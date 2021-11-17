@@ -24,6 +24,10 @@ public class Result implements Serializable {
         return new Result(OK,message,data);
     }
 
+    // 3.成功
+    public static Result  success(){
+        return new Result(OK,"操作成功",null);
+    }
 
 
     // 1.失败

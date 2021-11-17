@@ -6,7 +6,7 @@ import com.admin.web.form.QueryUsersForm;
 import com.github.pagehelper.PageInfo;
 
 public interface UserService {
-    User login(LoginForm loginForm);
+    String login(LoginForm loginForm);
 
     PageInfo<User> queryUserList(QueryUsersForm queryUsersForm);
 }
